@@ -11,7 +11,7 @@ import Banner from "../../assets/Banner.png";
 import BannerMouse from "../../assets/banner-mouses.png";
 import BannerHeadphone from "../../assets/banner-fones.png";
 
-import { SectionTitle } from "./components/section-title";
+import { SectionTitle } from "../../components/ui/section-title";
 import { PromoBanner } from "./components/promo-banner";
 
 export default async function Home() {
