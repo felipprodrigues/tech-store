@@ -5,7 +5,7 @@ import Image from "next/image";
 import Categories from "./components/categories";
 import { prismaClient } from "@/lib/prisma";
 
-import ProductList from "./components/product-list";
+import ProductList from "../../components/ui/product-list";
 
 import Banner from "../../assets/Banner.png";
 import BannerMouse from "../../assets/banner-mouses.png";
