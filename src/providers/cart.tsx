@@ -2,7 +2,7 @@
 
 import { ProductWithTotalPrice } from "@/helpers/product";
 
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useMemo, useState } from "react";
 
 export interface CartProduct extends ProductWithTotalPrice {
   quantity: number;
@@ -13,6 +13,9 @@ interface ICartContext {
   cartTotalPrice: number;
   cartBasePrice: number;
   cartTotalDiscount: number;
+  total: number;
+  subTotal: number;
+  totalDiscount: number;
   addProductToCart: (product: CartProduct) => void;
   decreaseProductQuantity: (productId: string) => void;
   increaseProductQuantity: (productId: string) => void;
@@ -24,6 +27,9 @@ export const CartContext = createContext<ICartContext>({
   cartTotalPrice: 0,
   cartBasePrice: 0,
   cartTotalDiscount: 0,
+  total: 0,
+  subTotal: 0,
+  totalDiscount: 0,
   addProductToCart: () => {},
   decreaseProductQuantity: () => {},
   increaseProductQuantity: () => {},
@@ -32,6 +38,22 @@ export const CartContext = createContext<ICartContext>({
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [products, setProducts] = useState<CartProduct[]>([]);
+
+  const subTotal = useMemo(() => {
+    return products.reduce((acc, product) => {
+      return acc + Number(product.basePrice) * product.quantity;
+    }, 0);
+  }, [products]);
+
+  const total = useMemo(() => {
+    return products.reduce((acc, product) => {
+      return acc + product.totalPrice * product.quantity;
+    }, 0);
+  }, [products]);
+
+  const totalDiscount = useMemo(() => {
+    return total - subTotal;
+  }, [total, subTotal]);
 
   const addProductToCart = (product: CartProduct) => {
     const productIsAlreadyOnCart = products.some(
@@ -103,6 +125,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
         cartTotalPrice: 0,
         cartBasePrice: 0,
         cartTotalDiscount: 0,
+        total,
+        subTotal,
+        totalDiscount,
         addProductToCart,
         decreaseProductQuantity,
         increaseProductQuantity,
