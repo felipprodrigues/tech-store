@@ -52,38 +52,40 @@ export function Cart() {
         </ScrollArea>
       </div>
 
-      <div className="flex flex-col gap-3">
-        <Separator />
-        <div className="div flex items-center justify-between text-xs">
-          <p>Subtotal</p>
-          <p>R$ {subTotal.toFixed(2)}</p>
-        </div>
+      {!products.length ? null : (
+        <div className="flex flex-col gap-3">
+          <Separator />
+          <div className="div flex items-center justify-between text-xs">
+            <p>Subtotal</p>
+            <p>R$ {subTotal.toFixed(2)}</p>
+          </div>
 
-        <Separator />
-        <div className="div flex items-center justify-between text-xs">
-          <p>Entrega</p>
-          <p>GRÁTIS</p>
-        </div>
+          <Separator />
+          <div className="div flex items-center justify-between text-xs">
+            <p>Entrega</p>
+            <p>GRÁTIS</p>
+          </div>
 
-        <Separator />
-        <div className="div flex items-center justify-between text-xs">
-          <p>Descontos</p>
-          <p>R$ {totalDiscount.toFixed(2)}</p>
-        </div>
+          <Separator />
+          <div className="div flex items-center justify-between text-xs">
+            <p>Descontos</p>
+            <p>R$ {totalDiscount.toFixed(2)}</p>
+          </div>
 
-        <Separator />
-        <div className="div flex items-center justify-between text-xs font-bold">
-          <p>Total</p>
-          <p>R$ {total.toFixed(2)}</p>
-        </div>
+          <Separator />
+          <div className="div flex items-center justify-between text-xs font-bold">
+            <p>Total</p>
+            <p>R$ {total.toFixed(2)}</p>
+          </div>
 
-        <Button
-          className="mt-7 font-bold uppercase"
-          onClick={handleFinishPurchaseClick}
-        >
-          Finalizar comprar
-        </Button>
-      </div>
+          <Button
+            className="mt-7 font-bold uppercase"
+            onClick={handleFinishPurchaseClick}
+          >
+            Finalizar comprar
+          </Button>
+        </div>
+      )}
     </div>
   );
 }
