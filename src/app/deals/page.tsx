@@ -9,7 +9,7 @@ export default async function DealsPage() {
     where: {
       discountPercentage: {
         // higher than 0
-        gt: 0,
+        gt: 0, 
       },
     },
   });
