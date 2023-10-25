@@ -4,7 +4,7 @@ import { prismaClient } from "@/lib/prisma";
 import { CartProduct } from "@/providers/cart";
 import { User } from "@prisma/client";
 
-export async function createOrder(cartProducts: CartProduct[], userId: User) {
+export async function createOrder(cartProducts: CartProduct[], userId: any) {
   const order = await prismaClient.order.create({
     data: {
       userId,
