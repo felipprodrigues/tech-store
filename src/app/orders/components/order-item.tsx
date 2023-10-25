@@ -53,12 +53,12 @@ export function OrderItem({ order }: OrderItemProps) {
         <AccordionItem value={order.id}>
           <AccordionTrigger>
             <div className="flex flex-col gap-1 text-left">
-              <p className="flex flex-col">
+              <p className="font-md font-bold uppercase">
                 Pedido com {order.orderProducts.length} produto(s){" "}
-                <span className="text-[10px] opacity-60">
-                  Feito em {format(order.createdAt, "d/MM/y 'às' HH:mm")}
-                </span>
               </p>
+              <span className="text-[10px] opacity-60">
+                Feito em {format(order.createdAt, "d/MM/y 'às' HH:mm")}
+              </span>
             </div>
           </AccordionTrigger>
           <AccordionContent>
