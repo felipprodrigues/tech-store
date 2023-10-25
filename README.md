@@ -1,3 +1,10 @@
+# Tech Store
+
+Here's some information about the app.
+
+> **Note:** This web app is optimized for small devices like cellphones and tablets only. It was intentionally designed for this purpose. Fullscreen mode was not part of the design and may not provide the best user experience. For the optimal experience, please use it within viewports of small devices.
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
