@@ -9,17 +9,14 @@ export default async function DealsPage() {
     where: {
       discountPercentage: {
         // higher than 0
-        gt: 0, 
+        gt: 0,
       },
     },
   });
 
   return (
     <div className="flex flex-col gap-5 p-5">
-      <Badge
-        className="w-fit gap-1 border-2 border-primary px-3 py-[0.375rem] text-base uppercase"
-        variant="outline"
-      >
+      <Badge variant="heading">
         <PercentIcon size={16} />
         Ofertas
       </Badge>
